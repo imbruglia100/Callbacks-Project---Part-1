@@ -22,8 +22,24 @@ console.log(result3); // hi!!!!!
 *******************************************************************************/
 
 function multiMap(val, n, cb) {
-  // Your code here 
+  // Your code here
+  let res = val
+  let temp = 0
+
+  for (let i = 0; i < n; i++){
+
+    if(res === val){
+      temp = cb(val)
+    }else{
+      temp = cb(res)
+    }
+    res = temp
+  }
+
+  return res
 }
+
+
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
