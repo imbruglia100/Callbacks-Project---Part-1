@@ -27,12 +27,8 @@ function multiMap(val, n, cb) {
   let temp = 0
 
   for (let i = 0; i < n; i++){
+    temp = cb(res, i, val)
 
-    if(res === val){
-      temp = cb(val)
-    }else{
-      temp = cb(res)
-    }
     res = temp
   }
 
