@@ -24,12 +24,9 @@ console.log(result3); // hi!!!!!
 function multiMap(val, n, cb) {
   // Your code here
   let res = val
-  let temp = 0
 
   for (let i = 0; i < n; i++){
-    temp = cb(res)
-
-    res = temp
+    res = cb(res)
   }
 
   return res
