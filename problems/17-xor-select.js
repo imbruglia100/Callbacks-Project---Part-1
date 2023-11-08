@@ -32,8 +32,43 @@ console.log(
 *******************************************************************************/
 
 let xorSelect = function(array, cb1, cb2) {
-  // Your code here 
+  // Your code here
+  let res = []
+
+  for(let i = 0; i < array.length; i++){
+    let ele = array[i]
+    if( !(cb1(ele, i, array) && cb2(ele, i, array)) && (cb1(ele, i, array) || cb2(ele, i, array)) ){
+      res.push(ele)
+    }
+  }
+
+  return res
 };
+
+let isEven = function(n) {
+  return n % 2 === 0;
+};
+
+let isPositive = function(n) {
+  return n > 0;
+};
+
+console.log(xorSelect([-2, -1, 1, 2, 3, 4], isEven, isPositive));
+// [ -2, 1, 3 ]
+
+
+let longString = function(s) {
+  return s.length > 4;
+};
+
+let startsA = function(s) {
+  return s[0] === "a";
+};
+
+console.log(
+  xorSelect(["art", "academy", "app", "cat", "buttery"], longString, startsA)
+);
+// [ 'art', 'app', 'buttery' ]
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
